@@ -6,8 +6,8 @@ A full-stack web application built with the MERN stack (MongoDB, Express, React,
 
 This application provides a complete task management experience with a modern UI built with Tailwind CSS, including task creation, status tracking, due date management, and responsive design.
 
-[<img src="https://img.shields.io/badge/Live-Demo-success?style=for-the-badge&color=555555&labelColor=4CAF50" />](https://your-live-demo-url.com)
-[<img src="https://img.shields.io/badge/Live-API-success?style=for-the-badge&color=555555&labelColor=2196F3" />](https://your-api-url.com)
+[<img src="https://img.shields.io/badge/Live-Demo-success?style=for-the-badge&color=555555&labelColor=4CAF50" />](https://mern-task-manager-tau.vercel.app/)
+[<img src="https://img.shields.io/badge/Live-API-success?style=for-the-badge&color=555555&labelColor=2196F3" />](https://mern-task-manager-tg7d.onrender.com)
 
 ![Task Manager Screenshot](./frontend/src/assets/task.png)
 
@@ -227,9 +227,5 @@ const taskSchema = new mongoose.Schema({
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgments
-- MERN stack documentation and tutorials
-- Tailwind CSS for the responsive design system
-- React Hot Toast for the notification system
-- PLP MERN module of specialization 
-- PLP (Power Learn Project) School for the knowledge and support
+- PLP (Power Learn Project) for the knowledge and support
 - All open-source packages used in this project
