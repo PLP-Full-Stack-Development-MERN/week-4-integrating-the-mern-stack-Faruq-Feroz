@@ -1,75 +1,235 @@
-**Week 4: MERN Stack Integration Project**
+# MERN Task Manager
 
-**Objective:**
+A full-stack web application built with the MERN stack (MongoDB, Express, React, Node.js) that allows users to create, read, update, and delete tasks efficiently.
 
-- Develop a full-stack web application using the MERN stack.
-- Apply backend and frontend integration skills.
-- Practice RESTful API development and consumption.
-- Implement CRUD operations and proper project structuring.
+## Overview
 
-**Project Suggestion:** Build a "Task Manager" application where users can create, read, update, and delete tasks. Each task should include fields like title, description, status, and due date.
+This application provides a complete task management experience with a modern UI built with Tailwind CSS, including task creation, status tracking, due date management, and responsive design.
 
-**Instructions:**
+[<img src="https://img.shields.io/badge/Live-Demo-success?style=for-the-badge&color=555555&labelColor=4CAF50" />](https://your-live-demo-url.com)
+[<img src="https://img.shields.io/badge/Live-API-success?style=for-the-badge&color=555555&labelColor=2196F3" />](https://your-api-url.com)
 
-1. **Setup the Project:**
-   - Create a new project folder called `mern-task-manager`.
-   - Initialize both backend and frontend directories within the project.
-   - Install necessary dependencies such as Express, Mongoose, React, and Axios.
+![Task Manager Screenshot](./frontend/src/assets/task.png)
 
-2. **Backend Development:**
-   - Set up an Express server and connect to MongoDB.
-   - Create a `Task` model with the following fields:
-     - `title` (String, required)
-     - `description` (String)
-     - `status` (String, default: 'pending', enum: ['pending', 'in progress', 'completed'])
-     - `dueDate` (Date)
-   - Implement RESTful API routes to:
-     - Create a new task
-     - Retrieve all tasks
-     - Update a task by ID
-     - Delete a task by ID
-   - Use environment variables for database connection.
+## Features
 
-3. **Frontend Development:**
-   - Set up a React project and configure routing.
-   - Create components:
-     - `TaskList` to display all tasks.
-     - `TaskForm` to add or update tasks.
-     - `TaskItem` to show an individual task.
-   - Implement forms to capture task details.
-   - Use Axios to make API requests to the backend.
-   - Implement UI styling using Tailwind CSS.
+- **Create Tasks**: Add new tasks with title, description, status, and due date
+- **View Tasks**: See all your tasks in an organized, user-friendly interface
+- **Update Tasks**: Edit task details or change their status as you progress
+- **Delete Tasks**: Remove tasks you no longer need
+- **Status Management**: Track tasks with three status options: pending, in progress, and completed
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
+- **Modern UI**: Clean interface with Tailwind CSS styling
+- **Toast Notifications**: Get feedback on actions with React Hot Toast
 
-4. **State Management:**
-   - Use React's `useState` and `useEffect` hooks to manage task state.
-   - Handle user interactions such as adding, updating, and deleting tasks.
+## Tech Stack
 
-5. **Testing:**
-   - Run the backend server and test API endpoints using Postman.
-   - Run the React app and ensure API calls work correctly.
-   - Verify CRUD operations.
+### Frontend
+- React.js
+- React Router for navigation
+- Axios for API requests
+- Tailwind CSS for styling
+- React Hot Toast for notifications
+- Date-fns for date formatting
+- Lucide React for icons
 
-6. **Project Deployment:**
-   - Deploy the backend to a cloud platform such as Render.
-   - Deploy the frontend to Vercel.
-   - Ensure proper connection between frontend and backend.
+### Backend
+- Node.js
+- Express.js for server framework
+- MongoDB with Mongoose for database operations
+- Dotenv for environment variables
+- CORS for cross-origin resource sharing
+- Morgan for HTTP request logging
+- Helmet for security
 
-7. **Documentation:**
-   - Write a `README.md` file including:
-     - Project overview
-     - Installation steps
-     - API endpoint documentation
-     - Features and usage guide
+## Project Structure
 
-8. **Submission:**
-   - Push your project to your GitHub repository.
+```
+mern-task-manager/
+├── frontend/                   # React frontend
+│   ├── node_modules/           # Frontend dependencies
+│   ├── public/                 # Static assets
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── EditTask.jsx    # Task editing component
+│   │   │   ├── Footer.jsx      # Footer component
+│   │   │   ├── Navbar.jsx      # Navigation bar component
+│   │   │   ├── TaskForm.jsx    # New task creation form
+│   │   │   └── TaskList.jsx    # List of tasks component
+│   │   ├── api.js              # API service for backend communication
+│   │   ├── App.jsx             # Main React component
+│   │   ├── index.css           # Global styles with Tailwind
+│   │   └── main.jsx            # React entry point
+│   ├── .gitignore              # Git ignore file
+│   ├── index.html              # HTML template
+│   ├── package.json            # Frontend dependencies and scripts
+│   ├── postcss.config.js       # PostCSS configuration
+│   ├── tailwind.config.js      # Tailwind CSS configuration
+│   └── vite.config.js          # Vite bundler configuration
+│
+├── backend/                    # Express backend
+│   ├── node_modules/           # Backend dependencies
+│   ├── controllers/
+│   │   └── taskController.js   # Task CRUD operations logic
+│   ├── models/
+│   │   └── taskModel.js        # Mongoose model for tasks
+│   ├── routes/
+│   │   └── taskRoutes.js       # API endpoints for tasks
+│   ├── .env                    # Environment variables
+│   ├── .gitignore              # Git ignore file
+│   ├── package.json            # Backend dependencies and scripts
+│   └── server.js               # Express server entry point
+│
+└── README.md                   # Project documentation
+```
 
-**Evaluation Criteria:**
+## Prerequisites
 
-- Proper project setup and folder structuring.
-- Working CRUD operations in both frontend and backend.
-- Correct use of React state and hooks.
-- Well-structured API endpoints with appropriate error handling.
-- A functional and user-friendly UI with Tailwind CSS.
-- Clear and concise documentation.
+- Node.js (v14 or higher)
+- npm or yarn
+- MongoDB (local installation or MongoDB Atlas account)
 
+## Installation
+
+### Setting Up the Backend
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/yourusername/mern-task-manager.git
+   cd mern-task-manager
+   ```
+
+2. Install backend dependencies
+   ```bash
+   cd backend
+   npm install express mongoose dotenv cors morgan helmet
+   npm install nodemon --save-dev
+   ```
+
+3. Create a `.env` file in the backend directory with the following variables:
+   ```
+   PORT=5000
+   MONGODB_URI=mongodb://localhost:27017/task-manager
+   NODE_ENV=development
+   ```
+
+4. Start the backend server
+   ```bash
+   npm run dev
+   ```
+   The server will run on http://localhost:5000
+
+### Setting Up the Frontend
+
+1. Open a new terminal and navigate to the frontend directory
+   ```bash
+   cd ../frontend
+   ```
+
+2. Install frontend dependencies
+   ```bash
+   npm install axios react-router-dom react-hot-toast date-fns lucide-react
+   npm install -D tailwindcss@3.3.3 postcss@8.4.31 autoprefixer@10.4.15
+   npx tailwindcss init -p
+   ```
+
+3. Create a `.env` file in the frontend directory (if needed):
+   ```
+   VITE_API_URL=http://localhost:5000/api
+   ```
+
+4. Start the frontend development server
+   ```bash
+   npm run dev
+   ```
+   The application will open in your browser at http://localhost:5173
+
+## Database Schema
+
+### Task Schema
+```javascript
+const taskSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  description: { type: String },
+  status: { 
+    type: String, 
+    default: 'pending', 
+    enum: ['pending', 'in progress', 'completed'] 
+  },
+  dueDate: { type: Date }
+});
+```
+
+## API Endpoints
+
+### Tasks
+
+| Method | Endpoint        | Description         | 
+|--------|-----------------|---------------------|
+| GET    | /api/tasks      | Get all tasks       |
+| POST   | /api/tasks      | Create a new task   |
+| GET    | /api/tasks/:id  | Get task by ID      |
+| PUT    | /api/tasks/:id  | Update task by ID   |
+| DELETE | /api/tasks/:id  | Delete task by ID   |
+
+## Usage Guide
+
+1. **Adding a New Task**:
+   - Click the "New Task" or "Add New Task" button
+   - Fill in the task details (title, description, status, due date)
+   - Click "Save" or "Add Task"
+
+2. **Viewing Tasks**:
+   - All tasks are displayed on the main dashboard
+   - Each task shows its title, description, status, and due date
+
+3. **Updating a Task**:
+   - Click the edit (pencil) icon on a task
+   - Modify the task details in the form
+   - Click "Update" to save changes
+
+4. **Changing Task Status**:
+   - Select a different status from the dropdown menu
+   - The task status will update immediately
+
+5. **Deleting a Task**:
+   - Click the delete (trash) icon on a task
+   - Confirm deletion when prompted
+
+## Deployment
+
+### Backend Deployment (Render)
+1. Create a new Web Service in Render
+2. Connect your GitHub repository
+3. Set the build command: `npm install`
+4. Set the start command: `node server.js`
+5. Add environment variables from your `.env` file
+6. Deploy the service
+
+### Frontend Deployment (Vercel)
+1. Push your code to GitHub
+2. Import the project in Vercel
+3. Set the root directory to `frontend`
+4. Configure environment variables
+5. Deploy the application
+
+## Future Enhancements
+- User authentication and personal task lists
+- Task categories and tags
+- Task priority levels
+- Due date reminders and notifications
+- Dark/light theme toggle
+- Task sorting and filtering options
+- Drag and drop interface for status changes
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+- MERN stack documentation and tutorials
+- Tailwind CSS for the responsive design system
+- React Hot Toast for the notification system
+- PLP MERN module of specialization 
+- PLP (Power Learn Project) School for the knowledge and support
+- All open-source packages used in this project
